@@ -12,6 +12,7 @@ public class BasicAuthenticationController {
 	@GetMapping(path="/basicauth")
 	public AuthenticationBean helloWorldBean() {
 		//throw new RuntimeException( "Something went wrong!" );
+		System.out.println("LDCV - Authenticated!");
 		return new AuthenticationBean("LDCV - You are authenticated!");
 	}
 	
