@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class TodoHardcodedService {
 	
 	private static List<Todo> todos = new ArrayList<Todo>();
-	private static int idCounter = 0;
+	private static long idCounter = 0;
 	
 	static {
 		todos.add( new Todo(++idCounter, "in28minutes", "Learn to Physics", new Date(), false));
@@ -24,13 +24,13 @@ public class TodoHardcodedService {
 		return todos;
 	}
 	
-	public Todo deleteById( int id) {
+	public Todo deleteById( Long id) {
 		Todo todo = findById( id );
 		todos.remove( todo );
 		return todo;
 	}
 	
-	public Todo findById( int id ) {
+	public Todo findById( Long id ) {
 		for (Todo todo: todos ) {
 			if(todo.getId() == id ) {
 				return todo;
@@ -44,7 +44,7 @@ public class TodoHardcodedService {
 			todo.setId(++idCounter);
 			todos.add(todo);
 		}else {
-			deleteById((int)todo.getId());
+			deleteById(todo.getId());
 			todos.add(todo);
 		}
 		return todo;
